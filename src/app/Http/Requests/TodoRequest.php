@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// todo: 分ける
 class TodoRequest extends FormRequest
 {
     /**
@@ -31,8 +32,8 @@ class TodoRequest extends FormRequest
     public function messages()
     {
         return [
-            'content.required' => 'ToDoが入力されていません。',
-            'content.max' => 'ToDoは :max 文字以内で入力してください。',
+            'required' => '入力されていません。',
+            'max' => 'max 文字以内で入力してください。',
         ];
     }
 }

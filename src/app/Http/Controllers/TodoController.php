@@ -24,9 +24,7 @@ class TodoController extends Controller
     }
 
     public function store(TodoRequest $request) {
-        $inputs = $request->all();
-
-        $this->todo->fill($inputs);
+        $this->todo->fill($request->all());
         $this->todo->save();
 
         return redirect()->route('todo.index');
@@ -45,11 +43,9 @@ class TodoController extends Controller
     }
 
     public function update(TodoRequest $request, $id) {
-        $inputs = $request->all();
-
         $todo = $this->todo->find($id);
 
-        $todo->fill($inputs)->save();
+        $todo->fill($request->all())->save();
 
         return redirect()->route('todo.show', $todo->id);
     }
